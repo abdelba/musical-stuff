@@ -1,3 +1,11 @@
+<div class="sorting buttons">
+  <button (click)="sort('genre')">Genre</button>
+  <button (click)="sort('price', 'asc')">Price - low to high</button>
+  <button (click)="sort('price', 'desc')">Price - high to low</button>
+  <button (click)="sort('length', 'asc')">Length - shortest first</button>
+  <button (click)="sort('length', 'desc')">Lenght - longest first price</button>
+</div>
+
 <div class="results">
   <mus-track-list-item *ngFor="let track of tracks" [track]="track"></mus-track-list-item>
 </div>

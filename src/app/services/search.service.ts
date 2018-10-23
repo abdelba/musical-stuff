@@ -15,7 +15,9 @@ export class SearchService {
 
   getResults(term: string): Observable<Track[]> {
     // TODO handle errors
-    const params = new HttpParams().set('term', term);
+    const params = new HttpParams().set('term', term)
+                                   .set('entity', 'song');
+
     return this.http
                .get<SearchResult>(environment.itunes.apiUrl, { params })
                .pipe(map(response => (new SearchResult(response)).getTracks()));
@@ -34,11 +36,11 @@ class SearchResult {
   }
 
   toTrack(obj): Track {
-    const track      = new Track();
-    track.trackId    = obj.trackId;
-    track.songLength = obj.trackTimeMillis;
-    track.price      = obj.trackPrice;
-    track.genre      = obj.primaryGenreName;
+    const track  = new Track();
+    track.id     = obj.trackId;
+    track.length = obj.trackTimeMillis;
+    track.price  = obj.trackPrice;
+    track.genre  = obj.primaryGenreName;
 
     return track;
   }

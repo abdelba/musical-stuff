@@ -16,4 +16,19 @@ export class TrackListComponent implements OnInit {
   ngOnInit() {
   }
 
+  sort(attribute, order = 'asc') {
+    this.tracks = this.tracks.sort((a, b) => {
+      if (order === 'desc') {
+        [a, b] = [b, a];
+      }
+
+      if (a[attribute] < b[attribute]) {
+        return -1;
+      }
+      if (a[attribute] > b[attribute]) {
+        return 1;
+      }
+      return 0;
+    });
+  }
 }

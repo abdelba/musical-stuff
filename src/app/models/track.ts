@@ -1,6 +1,6 @@
 export class Track {
-  trackId: string;
-  songLength: number;
+  id: string;
+  length: number;
   price: number;
   genre: string;
 }
