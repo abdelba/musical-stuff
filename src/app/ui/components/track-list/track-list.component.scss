@@ -1,0 +1,22 @@
+.sorting.buttons {
+  margin: 20px 0;
+  text-align: center;
+
+  button {
+    background: #0892C7;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: .65em;
+    text-transform: uppercase;
+    margin: 5px;
+    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+
+    &.active {
+
+    }
+  }
+}
