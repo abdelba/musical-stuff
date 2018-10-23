@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { TrackListComponent } from './ui/components/track-list/track-list.component';
+import { TrackListItemComponent } from './ui/components/track-list-item/track-list-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    TrackListComponent,
+    TrackListItemComponent
   ],
   imports     : [
     BrowserModule,

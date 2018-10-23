@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit {
   }
 
   search() {
-    this.searchService.getResults(this.searchTerm).subscribe(results => this.tracks = results);
+    this.searchService
+        .getResults(this.searchTerm)
+        .subscribe(results => this.tracks = results);
   }
 }
