@@ -3,5 +3,5 @@
 <input type="text" class="search" placeholder="Search" [(ngModel)]="searchTerm" (keyup)="search()">
 
 <ul class="results">
-  <li *ngFor="let result of results">{{result.trackId}}</li>
+  <li *ngFor="let track of tracks">{{track}}</li>
 </ul>

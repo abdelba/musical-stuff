@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../../services/search.service';
+import { Track } from '../../models/track';
 
 @Component({
   selector   : 'mus-home',
@@ -8,7 +9,7 @@ import { SearchService } from '../../services/search.service';
 })
 export class HomeComponent implements OnInit {
 
-  results: [Object];
+  tracks: Track[];
   searchTerm: string;
 
   constructor(private searchService: SearchService) {
@@ -18,7 +19,6 @@ export class HomeComponent implements OnInit {
   }
 
   search() {
-    this.searchService.getResults(this.searchTerm).subscribe(results => this.results = results);
-    console.log(this.results);
+    this.searchService.getResults(this.searchTerm).subscribe(results => this.tracks = results);
   }
 }
