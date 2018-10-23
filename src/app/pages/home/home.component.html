@@ -1,0 +1,7 @@
+<h1 class="title">Musical Stuff</h1>
+
+<input type="text" class="search" placeholder="Search" [(ngModel)]="searchTerm" (keyup)="search()">
+
+<ul class="results">
+  <li *ngFor="let result of results">{{result.trackId}}</li>
+</ul>
