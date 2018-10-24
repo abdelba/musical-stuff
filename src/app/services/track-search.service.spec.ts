@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SearchService } from './search.service';
+import { TrackSearchService } from './track-search.service';
 
-describe('SearchService', () => {
+describe('TrackSearchService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SearchService = TestBed.get(SearchService);
+    const service: TrackSearchService = TestBed.get(TrackSearchService);
     expect(service).toBeTruthy();
   });
 });

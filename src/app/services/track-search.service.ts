@@ -1,31 +1,55 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Track } from '../models/track';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SearchService {
+export class TrackSearchService {
+  private _tracks: BehaviorSubject<Track[]>;
 
   constructor(private http: HttpClient) {
+    this._tracks = new BehaviorSubject<Track[]>(null);
   }
 
-  getResults(term: string): Promise<Track[]> {
-    // TODO handle errors
+  doSearch(term: string) {
     const params = new HttpParams().set('term', term)
                                    .set('entity', 'song');
 
-    return this.http
-               .get<SearchResult>(environment.itunes.apiUrl, { params })
-               .pipe(map(response => (new SearchResult(response)).getTracks()))
-               .toPromise();
+    this.http
+        .get<ItunesSearchResult>(environment.itunes.apiUrl, { params })
+        .pipe(map(response => (new ItunesSearchResult(response)).getTracks()))
+        .toPromise()
+        .then((tracks) => this._tracks.next(tracks));
+  }
+
+  get tracks(): Observable<Track[]> {
+    return this._tracks.asObservable();
+  }
+
+  sort(attribute: any, order: string) {
+    const sortedTracks = this._tracks.value.sort((a, b) => {
+      if (order === 'desc') {
+        [a, b] = [b, a];
+      }
+
+      if (a[attribute] < b[attribute]) {
+        return -1;
+      }
+      if (a[attribute] > b[attribute]) {
+        return 1;
+      }
+      return 0;
+    });
+
+    this._tracks.next(sortedTracks);
   }
 }
 
-class SearchResult {
+class ItunesSearchResult {
   results: [Object];
 
   constructor(response) {

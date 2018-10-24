@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TrackSearchService } from '../../../services/track-search.service';
+import { Observable } from 'rxjs';
 import { Track } from '../../../models/track';
 
 @Component({
@@ -7,28 +9,16 @@ import { Track } from '../../../models/track';
   styleUrls  : ['./track-list.component.scss']
 })
 export class TrackListComponent implements OnInit {
-  @Input()
-  tracks: Track[];
+  tracks: Observable<Track[]>;
 
-  constructor() {
+  constructor(private trackSearch: TrackSearchService) {
   }
 
   ngOnInit() {
+    this.tracks = this.trackSearch.tracks;
   }
 
   sort(attribute, order = 'asc') {
-    this.tracks = this.tracks.sort((a, b) => {
-      if (order === 'desc') {
-        [a, b] = [b, a];
-      }
-
-      if (a[attribute] < b[attribute]) {
-        return -1;
-      }
-      if (a[attribute] > b[attribute]) {
-        return 1;
-      }
-      return 0;
-    });
+    this.trackSearch.sort(attribute, order);
   }
 }

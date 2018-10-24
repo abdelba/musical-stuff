@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TrackListComponent } from './ui/components/track-list/track-list.component';
 import { TrackListItemComponent } from './ui/components/track-list-item/track-list-item.component';
+import { TrackSearchService } from './services/track-search.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { TrackListItemComponent } from './ui/components/track-list-item/track-li
     HttpClientModule,
     FormsModule,
   ],
-  providers   : [],
+  providers   : [TrackSearchService],
   bootstrap   : [AppComponent]
 })
 export class AppModule {
