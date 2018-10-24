@@ -13,14 +13,15 @@ export class SearchService {
   constructor(private http: HttpClient) {
   }
 
-  getResults(term: string): Observable<Track[]> {
+  getResults(term: string): Promise<Track[]> {
     // TODO handle errors
     const params = new HttpParams().set('term', term)
                                    .set('entity', 'song');
 
     return this.http
                .get<SearchResult>(environment.itunes.apiUrl, { params })
-               .pipe(map(response => (new SearchResult(response)).getTracks()));
+               .pipe(map(response => (new SearchResult(response)).getTracks()))
+               .toPromise();
   }
 }
 
