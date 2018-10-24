@@ -1,12 +1,59 @@
 .track.list.item {
-  padding: 20px;
+  font-family: 'Ubuntu', sans-serif;
   background: white;
   margin: 15px 0;
-  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
   border-radius: 4px;
   cursor: pointer;
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
 
   &:hover {
-    box-shadow: 3px 3px 3px rgba(0,0,0,.3);;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);;
+  }
+
+  .info {
+    .title {
+      margin: 0;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: #b2bec3;
+      font-style: italic;
+      font-size: .75em;
+    }
+
+    .other {
+      margin-bottom: 0;
+    }
+
+    flex: 1;
+    padding: 20px;
+  }
+
+  .listen {
+    padding: 20px;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #0892C7;
+    border-left: 1px solid #0892C7;
+    transition: all 500ms;
+
+    @media (max-width: 600px) {
+      width: 100%;
+      border-left: none;
+      border-top: 1px solid #0892C7;
+    }
+
+    &:hover {
+      background-color: #0892C7;
+      color: white;
+    }
   }
 }

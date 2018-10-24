@@ -1,3 +1,17 @@
 <div class="track list item">
-  {{track.id}} • {{track.price}} • {{track.length}} • {{track.genre}}
+  <img src="{{track.thumbUrl}}" alt="{{track.title}}">
+
+  <div class="info">
+    <h4 class="title">{{track.title}}</h4>
+    <h5 class="subtitle">{{track.album}} • {{track.genre}}</h5>
+    <p class="other">
+      <strong>Released in</strong> {{track.releaseDate | date}},
+      <strong>costs</strong> $ {{track.price}}
+    </p>
+  </div>
+
+  <div class="listen">
+    &#9658;<br>
+    {{track.formattedLength()}}
+  </div>
 </div>

@@ -15,5 +15,4 @@ export class TrackListItemComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

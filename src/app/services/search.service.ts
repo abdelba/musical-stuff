@@ -37,11 +37,17 @@ class SearchResult {
   }
 
   toTrack(obj): Track {
-    const track  = new Track();
-    track.id     = obj.trackId;
-    track.length = obj.trackTimeMillis;
-    track.price  = obj.trackPrice;
-    track.genre  = obj.primaryGenreName;
+    const track       = new Track();
+    track.id          = obj.trackId;
+    track.length      = obj.trackTimeMillis;
+    track.price       = obj.trackPrice;
+    track.genre       = obj.primaryGenreName;
+    track.thumbUrl    = obj.artworkUrl100;
+    track.coverUrl    = obj.artworkUrl100.replace('100x100', '600x600');
+    track.title       = obj.trackName;
+    track.artist      = obj.artistName;
+    track.album       = obj.collectionName;
+    track.releaseDate = obj.releaseDate;
 
     return track;
   }
