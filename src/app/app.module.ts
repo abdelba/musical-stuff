@@ -9,13 +9,17 @@ import { FormsModule } from '@angular/forms';
 import { TrackListComponent } from './ui/components/track-list/track-list.component';
 import { TrackListItemComponent } from './ui/components/track-list-item/track-list-item.component';
 import { TrackSearchService } from './services/track-search.service';
+import { ListenComponent } from './ui/pages/listen/listen.component';
+import { TrackPlayerComponent } from './ui/components/track-player/track-player.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TrackListComponent,
-    TrackListItemComponent
+    TrackListItemComponent,
+    ListenComponent,
+    TrackPlayerComponent
   ],
   imports     : [
     BrowserModule,

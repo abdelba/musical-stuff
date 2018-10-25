@@ -72,6 +72,7 @@ class ItunesSearchResult {
     track.artist      = obj.artistName;
     track.album       = obj.collectionName;
     track.releaseDate = obj.releaseDate;
+    track.listenUrl   = obj.previewUrl;
 
     return track;
   }

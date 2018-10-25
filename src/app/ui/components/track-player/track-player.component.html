@@ -1,0 +1,9 @@
+<div class="player container">
+  <img class="image" src="{{track.coverUrl}}">
+  <div class="controls">
+    <span class="go backward" (click)="goBackward()"><i class="fas fa-backward"></i></span>
+    <span class="play" (click)="play()" *ngIf="!playing"><i class="fas fa-play"></i></span>
+    <span class="pause" (click)="pause()" *ngIf="playing"><i class="fas fa-pause"></i></span>
+    <span class="go forward" (click)="goForward()"><i class="fas fa-forward"></i></span>
+  </div>
+</div>

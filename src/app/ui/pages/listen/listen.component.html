@@ -1,0 +1,5 @@
+<div class="player container">
+  <div *ngIf="track">
+    <mus-track-player [track]="track" (forward)="goNextTrack()" (backward)="goPrevTrack()"></mus-track-player>
+  </div>
+</div>

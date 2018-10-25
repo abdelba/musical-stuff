@@ -9,6 +9,7 @@ export class Track {
   thumbUrl: string;
   coverUrl: string;
   releaseDate: Date;
+  listenUrl: string;
 
   formattedLength() {
     const min = Math.floor(this.length / 60000);
