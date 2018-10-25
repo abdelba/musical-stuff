@@ -11,6 +11,8 @@ import { TrackListItemComponent } from './ui/components/track-list-item/track-li
 import { TrackSearchService } from './services/track-search.service';
 import { ListenComponent } from './ui/pages/listen/listen.component';
 import { TrackPlayerComponent } from './ui/components/track-player/track-player.component';
+import { FacebookShareDirective } from './ui/directives/facebook-share.directive';
+import { TwitterShareDirective } from './ui/directives/twitter-share.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { TrackPlayerComponent } from './ui/components/track-player/track-player.
     TrackListComponent,
     TrackListItemComponent,
     ListenComponent,
-    TrackPlayerComponent
+    TrackPlayerComponent,
+    FacebookShareDirective,
+    TwitterShareDirective
   ],
   imports     : [
     BrowserModule,

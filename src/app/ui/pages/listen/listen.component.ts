@@ -44,4 +44,8 @@ export class ListenComponent implements OnInit {
   goPrevTrack() {
     this.router.navigate([`/listen/${this.prevId}`]);
   }
+
+  getShareText() {
+    return `Listening to ${this.track.title} by ${this.track.artist}`;
+  }
 }

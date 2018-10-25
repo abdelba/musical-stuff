@@ -4,3 +4,35 @@
   justify-content: center;
   height: 100%;
 }
+
+.share.buttons {
+  padding-top: 30px;
+  text-align: center;
+
+  .button {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, .5);
+    }
+
+    i {
+      width: 15px;
+      height: 15px;
+    }
+
+    &.facebook {
+      background-color: darkblue;
+      color: white;
+    }
+
+    &.twitter {
+      background-color: deepskyblue;
+      color: white;
+    }
+  }
+}
