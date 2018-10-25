@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TrackSearchService } from '../../services/track-search.service';
+import { TrackSearchService } from '../../../services/track-search.service';
 
 @Component({
   selector   : 'mus-home',
