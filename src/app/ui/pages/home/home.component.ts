@@ -7,17 +7,15 @@ import { TrackSearchService } from '../../../services/track-search.service';
   styleUrls  : ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  searchTerm: string;
-
   constructor(private trackSearch: TrackSearchService) {
   }
 
   ngOnInit() {
   }
 
-  search() {
-    if (this.searchTerm) {
-      this.trackSearch.doSearch(this.searchTerm);
+  search(searchTerm) {
+    if (searchTerm) {
+      this.trackSearch.doSearch(searchTerm);
     }
   }
 }

@@ -13,6 +13,7 @@ import { ListenComponent } from './ui/pages/listen/listen.component';
 import { TrackPlayerComponent } from './ui/components/track-player/track-player.component';
 import { FacebookShareDirective } from './ui/directives/facebook-share.directive';
 import { TwitterShareDirective } from './ui/directives/twitter-share.directive';
+import { SearchFieldComponent } from './ui/components/search-field/search-field.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TwitterShareDirective } from './ui/directives/twitter-share.directive';
     ListenComponent,
     TrackPlayerComponent,
     FacebookShareDirective,
-    TwitterShareDirective
+    TwitterShareDirective,
+    SearchFieldComponent
   ],
   imports     : [
     BrowserModule,

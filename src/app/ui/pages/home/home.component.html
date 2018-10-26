@@ -1,9 +1,5 @@
 <div class="container">
   <h1 class="title">Musical Stuff</h1>
-
-  <div class="search field">
-    <input type="text" placeholder="Search" [(ngModel)]="searchTerm" (keyup)="search()">
-  </div>
-
+  <mus-search-field (searched)="search($event)"></mus-search-field>
   <mus-track-list></mus-track-list>
 </div>
