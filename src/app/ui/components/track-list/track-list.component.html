@@ -1,5 +1,5 @@
 <div class="track list container">
-  <div class="sorting buttons" [hidden]="!(tracks | async)">
+  <div class="sorting buttons" [hidden]="!tracks">
     <button (click)="sort('genre')">Genre</button>
     <button (click)="sort('price', 'asc')">Price - low to high</button>
     <button (click)="sort('price', 'desc')">Price - high to low</button>
@@ -8,6 +8,6 @@
   </div>
 
   <div class="track list">
-    <mus-track-list-item *ngFor="let track of (tracks | async)" [track]="track"></mus-track-list-item>
+    <mus-track-list-item *ngFor="let track of tracks" [track]="track"></mus-track-list-item>
   </div>
 </div>

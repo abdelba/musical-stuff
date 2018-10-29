@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TrackSearchService } from '../../../services/track-search.service';
+import { Track } from '../../../models/track';
 
 @Component({
   selector   : 'mus-home',
@@ -7,15 +8,22 @@ import { TrackSearchService } from '../../../services/track-search.service';
   styleUrls  : ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  tracks: Track[];
+
   constructor(private trackSearch: TrackSearchService) {
   }
 
   ngOnInit() {
+    this.trackSearch.tracks.subscribe(tracks => this.tracks = tracks);
   }
 
   search(searchTerm) {
     if (searchTerm) {
       this.trackSearch.doSearch(searchTerm);
     }
+  }
+
+  sort(query) {
+    this.trackSearch.sort(query.attribute, query.order);
   }
 }

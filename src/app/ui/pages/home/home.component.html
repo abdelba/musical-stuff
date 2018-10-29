@@ -1,5 +1,5 @@
 <div class="container">
   <h1 class="title">Musical Stuff</h1>
   <mus-search-field (searched)="search($event)"></mus-search-field>
-  <mus-track-list></mus-track-list>
+  <mus-track-list (sorted)="sort($event)" [tracks]="tracks"></mus-track-list>
 </div>
