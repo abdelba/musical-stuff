@@ -14,12 +14,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.trackSearch.tracks.subscribe(tracks => this.tracks = tracks);
+    this.tracks = [];
   }
 
   search(searchTerm) {
     if (searchTerm) {
-      this.trackSearch.doSearch(searchTerm);
+      this.trackSearch.doSearch(searchTerm).subscribe(tracks => this.tracks = tracks);
     }
   }
 

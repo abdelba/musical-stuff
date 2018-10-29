@@ -1,5 +1,5 @@
 <div class="track list container">
-  <div class="sorting buttons" [hidden]="!tracks">
+  <div class="sorting buttons" [hidden]="!tracks.length">
     <button (click)="sort('genre')">Genre</button>
     <button (click)="sort('price', 'asc')">Price - low to high</button>
     <button (click)="sort('price', 'desc')">Price - high to low</button>

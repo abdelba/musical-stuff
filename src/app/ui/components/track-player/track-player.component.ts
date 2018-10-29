@@ -17,7 +17,7 @@ export class TrackPlayerComponent implements OnInit, OnChanges, OnDestroy {
 
   playing = false;
 
-  constructor(private router: Router) {
+  constructor() {
   }
 
   ngOnInit() {

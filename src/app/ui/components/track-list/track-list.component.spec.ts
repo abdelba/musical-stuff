@@ -19,6 +19,7 @@ describe('TrackListComponent', () => {
   beforeEach(() => {
     fixture   = TestBed.createComponent(TrackListComponent);
     component = fixture.componentInstance;
+    component.tracks = [];
     fixture.detectChanges();
   });
 
