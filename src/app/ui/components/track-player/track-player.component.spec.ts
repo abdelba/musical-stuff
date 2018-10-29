@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TrackPlayerComponent } from './track-player.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Track } from '../../../models/track';
 
 describe('TrackPlayerComponent', () => {
   let component: TrackPlayerComponent;
@@ -8,14 +10,15 @@ describe('TrackPlayerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TrackPlayerComponent ]
-    })
-    .compileComponents();
+      declarations: [TrackPlayerComponent],
+      imports     : [RouterTestingModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TrackPlayerComponent);
-    component = fixture.componentInstance;
+    fixture         = TestBed.createComponent(TrackPlayerComponent);
+    component       = fixture.componentInstance;
+    component.track = new Track();
     fixture.detectChanges();
   });
 

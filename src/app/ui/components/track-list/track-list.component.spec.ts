@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TrackListComponent } from './track-list.component';
+import { TrackListItemComponent } from '../track-list-item/track-list-item.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('TrackListComponent', () => {
   let component: TrackListComponent;
@@ -8,13 +11,13 @@ describe('TrackListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TrackListComponent ]
-    })
-    .compileComponents();
+      declarations: [TrackListComponent, TrackListItemComponent],
+      imports     : [RouterTestingModule, HttpClientModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TrackListComponent);
+    fixture   = TestBed.createComponent(TrackListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
