@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, take, tap } from 'rxjs/operators';
 import { Track } from '../models/track';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -12,18 +12,19 @@ export class TrackSearchService {
   private _tracks: BehaviorSubject<Track[]>;
 
   constructor(private http: HttpClient) {
-    this._tracks = new BehaviorSubject<Track[]>(null);
+    this._tracks = new BehaviorSubject<Track[]>([]);
   }
 
-  doSearch(term: string) {
+  doSearch(term: string): Observable<Track[]> {
     const params = new HttpParams().set('term', term)
                                    .set('entity', 'song');
 
-    this.http
-        .get<ItunesSearchResult>(environment.itunes.apiUrl, { params })
-        .pipe(map(response => (new ItunesSearchResult(response)).getTracks()))
-        .toPromise()
-        .then((tracks) => this._tracks.next(tracks));
+    return this.http
+               .get(environment.itunes.apiUrl, { params })
+               .pipe(
+                 take(1),
+                 map(response => (new ItunesSearchResult(response)).getTracks()),
+                 tap(tracks => this._tracks.next(tracks)));
   }
 
   get tracks(): Observable<Track[]> {
